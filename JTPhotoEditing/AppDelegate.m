@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "JTRootViewController.h"
 
 @implementation AppDelegate
+@synthesize navigationController = _navigationController;
+@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -16,6 +19,12 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    JTRootViewController * rootViewController = [[JTRootViewController alloc]init];
+    self.navigationController = [[UINavigationController alloc]initWithRootViewController:rootViewController];
+    
+    self.window.rootViewController = self.navigationController;
+    
     return YES;
 }
 
@@ -45,5 +54,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
 
 @end
